@@ -6,72 +6,104 @@
         {
           "area": "NW0202",
           "cap": 16,
-          "mxGeometry": {
-            "x": 820,
-            "y": 90,
-            "width": 100,
-            "height": 260
-          }
+          "mxGeometry": [
+            {
+              "x": 820,
+              "y": 90,
+              "width": 100,
+              "height": 260
+            },
+            {
+              "x": 920,
+              "y": 90,
+              "width": 130,
+              "height": 150
+            }
+          ]
         },
         {
           "area": "NW0205",
           "cap": 1,
-          "mxGeometry": {
-            "x": 1110,
-            "y": 290,
-            "width": 30,
-            "height": 30
-          }
+          "mxGeometry": [
+            {
+              "x": 1110,
+              "y": 290,
+              "width": 30,
+              "height": 30
+            }
+          ]
         },
         {
           "area": "NW0201",
           "cap": 10,
-          "mxGeometry": {
-            "x": 690,
-            "y": 90,
-            "width": 110,
-            "height": 260
-          }
+          "mxGeometry": [
+            {
+              "x": 690,
+              "y": 90,
+              "width": 110,
+              "height": 260
+            },
+            {
+              "x": 1440,
+              "y": 90,
+              "width": 130,
+              "height": 150
+            }
+          ]
         },
         {
           "area": "NW0203",
           "cap": 14,
-          "mxGeometry": {
-            "x": 1080,
-            "y": 90,
-            "width": 100,
-            "height": 200
-          }
+          "mxGeometry": [
+            {
+              "x": 1080,
+              "y": 90,
+              "width": 100,
+              "height": 200
+            },
+            {
+              "x": 1180,
+              "y": 90,
+              "width": 130,
+              "height": 150
+            }
+          ]
         },
         {
           "area": "NW0204",
           "cap": 16,
-          "mxGeometry": {
-            "x": 1340,
-            "y": 90,
-            "width": 100,
-            "height": 250
-          }
+          "mxGeometry": [
+            {
+              "x": 1340,
+              "y": 90,
+              "width": 100,
+              "height": 250
+            }
+          ]
         },
         {
           "area": "NW0208",
           "cap": 4,
-          "mxGeometry": {
-            "x": 1610,
-            "y": 65,
-            "width": 110,
-            "height": 105
-          }
+          "mxGeometry": [
+            {
+              "x": 1610,
+              "y": 65,
+              "width": 110,
+              "height": 105
+            }
+          ]
         },
         {
           "area": "NW0207",
           "cap": 1,
-          "mxGeometry": {
-            "x": 1500,
-            "y": 240,
-            "width": 30,
-            "height": 30
-          }
+          "mxGeometry": [
+            {
+              "x": 1500,
+              "y": 240,
+              "width": 30,
+              "height": 30
+            }
+          ]
         }
       ]
     }
@@ -83,152 +115,200 @@
         {
           "area": "NW0301",
           "cap": 6,
-          "mxGeometry": {
-            "x": 150,
-            "y": 90,
-            "width": 90,
-            "height": 140
-          }
+          "mxGeometry": [
+            {
+              "x": 150,
+              "y": 90,
+              "width": 90,
+              "height": 140
+            }
+          ]
         },
         {
           "area": "NW0302",
           "cap": 8,
-          "mxGeometry": {
-            "x": 260,
-            "y": 60,
-            "width": 90,
-            "height": 170
-          }
+          "mxGeometry": [
+            {
+              "x": 260,
+              "y": 60,
+              "width": 90,
+              "height": 170
+            }
+          ]
         },
         {
           "area": "NW0305",
           "cap": 10,
-          "mxGeometry": {
-            "x": 310,
-            "y": 290,
-            "width": 90,
-            "height": 90
-          }
+          "mxGeometry": [
+            {
+              "x": 310,
+              "y": 290,
+              "width": 90,
+              "height": 90
+            },
+            {
+              "x": 400,
+              "y": 250,
+              "width": 100,
+              "height": 130
+            }
+          ]
         },
         {
           "area": "NW0306",
           "cap": 8,
-          "mxGeometry": {
-            "x": 520,
-            "y": 210,
-            "width": 90,
-            "height": 170
-          }
+          "mxGeometry": [
+            {
+              "x": 520,
+              "y": 210,
+              "width": 90,
+              "height": 170
+            }
+          ]
         },
         {
           "area": "NW0303",
           "cap": 6,
-          "mxGeometry": {
-            "x": 510,
-            "y": 90,
-            "width": 150,
-            "height": 80
-          }
+          "mxGeometry": [
+            {
+              "x": 510,
+              "y": 90,
+              "width": 150,
+              "height": 80
+            }
+          ]
         },
         {
           "area": "NW0307",
           "cap": 12,
-          "mxGeometry": {
-            "x": 730,
-            "y": 210,
-            "width": 90,
-            "height": 170
-          }
+          "mxGeometry": [
+            {
+              "x": 730,
+              "y": 210,
+              "width": 90,
+              "height": 170
+            },
+            {
+              "x": 630,
+              "y": 290,
+              "width": 100,
+              "height": 90
+            }
+          ]
         },
         {
           "area": "NW0308",
           "cap": 12,
-          "mxGeometry": {
-            "x": 840,
-            "y": 210,
-            "width": 100,
-            "height": 90
-          }
+          "mxGeometry": [
+            {
+              "x": 840,
+              "y": 210,
+              "width": 100,
+              "height": 90
+            },
+            {
+              "x": 940,
+              "y": 210,
+              "width": 90,
+              "height": 170
+            }
+          ]
         },
         {
           "area": "NW0309",
           "cap": 6,
-          "mxGeometry": {
-            "x": 1060,
-            "y": 210,
-            "width": 150,
-            "height": 80
-          }
+          "mxGeometry": [
+            {
+              "x": 1060,
+              "y": 210,
+              "width": 150,
+              "height": 80
+            }
+          ]
         },
         {
           "area": "NW0310",
           "cap": 1,
-          "mxGeometry": {
-            "x": 180,
-            "y": 230,
-            "width": 30,
-            "height": 30
-          }
+          "mxGeometry": [
+            {
+              "x": 180,
+              "y": 230,
+              "width": 30,
+              "height": 30
+            }
+          ]
         },
         {
           "area": "NW0304",
           "cap": 6,
-          "mxGeometry": {
-            "x": 210,
-            "y": 300,
-            "width": 70,
-            "height": 30
-          }
+          "mxGeometry": [
+            {
+              "x": 210,
+              "y": 300,
+              "width": 70,
+              "height": 30
+            }
+          ]
         },
         {
           "area": "NW0312",
           "cap": 1,
-          "mxGeometry": {
-            "x": 340,
-            "y": 260,
-            "width": 30,
-            "height": 30
-          }
+          "mxGeometry": [
+            {
+              "x": 340,
+              "y": 260,
+              "width": 30,
+              "height": 30
+            }
+          ]
         },
         {
           "area": "NW03013",
           "cap": 2,
-          "mxGeometry": {
-            "x": 660,
-            "y": 100,
-            "width": 30,
-            "height": 60
-          }
+          "mxGeometry": [
+            {
+              "x": 660,
+              "y": 100,
+              "width": 30,
+              "height": 60
+            }
+          ]
         },
         {
           "area": "NW0314",
           "cap": 6,
-          "mxGeometry": {
-            "x": 730,
-            "y": 80,
-            "width": 70,
-            "height": 70
-          }
+          "mxGeometry": [
+            {
+              "x": 730,
+              "y": 80,
+              "width": 70,
+              "height": 70
+            }
+          ]
         },
         {
           "area": "NW0315",
           "cap": 1,
-          "mxGeometry": {
-            "x": 1060,
-            "y": 320,
-            "width": 30,
-            "height": 30
-          }
+          "mxGeometry": [
+            {
+              "x": 1060,
+              "y": 320,
+              "width": 30,
+              "height": 30
+            }
+          ]
         },
         {
           "area": "NW0316",
           "cap": 1,
-          "mxGeometry": {
-            "x": 1060,
-            "y": 350,
-            "width": 30,
-            "height": 30
-          }
+          "mxGeometry": [
+            {
+              "x": 1060,
+              "y": 350,
+              "width": 30,
+              "height": 30
+            }
+          ]
         }
       ]
     },
@@ -237,152 +317,194 @@
         {
           "area": "SW0301",
           "cap": 4,
-          "mxGeometry": {
-            "x": 100,
-            "y": 0,
-            "width": 80,
-            "height": 80
-          }
+          "mxGeometry": [
+            {
+              "x": 100,
+              "y": 0,
+              "width": 80,
+              "height": 80
+            }
+          ]
         },
         {
           "area": "SW0302",
           "cap": 12,
-          "mxGeometry": {
-            "x": 150,
-            "y": 110,
-            "width": 270,
-            "height": 80
-          }
+          "mxGeometry": [
+            {
+              "x": 150,
+              "y": 110,
+              "width": 270,
+              "height": 80
+            }
+          ]
         },
         {
           "area": "SW0303",
           "cap": 16,
-          "mxGeometry": {
-            "x": 190,
-            "y": 210,
-            "width": 170,
-            "height": 160
-          }
+          "mxGeometry": [
+            {
+              "x": 190,
+              "y": 210,
+              "width": 170,
+              "height": 160
+            }
+          ]
         },
         {
           "area": "SW0305",
           "cap": 8,
-          "mxGeometry": {
-            "x": 370,
-            "y": 290,
-            "width": 180,
-            "height": 80
-          }
+          "mxGeometry": [
+            {
+              "x": 370,
+              "y": 290,
+              "width": 180,
+              "height": 80
+            }
+          ]
         },
         {
           "area": "SW0304",
           "cap": 12,
-          "mxGeometry": {
-            "x": 520,
-            "y": 150,
-            "width": 70,
-            "height": 110
-          }
+          "mxGeometry": [
+            {
+              "x": 520,
+              "y": 150,
+              "width": 70,
+              "height": 110
+            }
+          ]
         },
         {
           "area": "SW0306",
           "cap": 16,
-          "mxGeometry": {
-            "x": 610,
-            "y": 110,
-            "width": 170,
-            "height": 150
-          }
+          "mxGeometry": [
+            {
+              "x": 610,
+              "y": 110,
+              "width": 170,
+              "height": 150
+            }
+          ]
         },
         {
           "area": "SW0307",
           "cap": 12,
-          "mxGeometry": {
-            "x": 860,
-            "y": 90,
-            "width": 160,
-            "height": 140
-          }
+          "mxGeometry": [
+            {
+              "x": 860,
+              "y": 90,
+              "width": 160,
+              "height": 140
+            }
+          ]
         },
         {
           "area": "SW0308",
           "cap": 11,
-          "mxGeometry": {
-            "x": 880,
-            "y": 240,
-            "width": 140,
-            "height": 90
-          }
+          "mxGeometry": [
+            {
+              "x": 880,
+              "y": 240,
+              "width": 140,
+              "height": 90
+            },
+            {
+              "x": 850,
+              "y": 330,
+              "width": 170,
+              "height": 50
+            }
+          ]
         },
         {
           "area": "SW0309",
           "cap": 8,
-          "mxGeometry": {
-            "x": 1030,
-            "y": 80,
-            "width": 80,
-            "height": 160
-          }
+          "mxGeometry": [
+            {
+              "x": 1030,
+              "y": 80,
+              "width": 80,
+              "height": 160
+            }
+          ]
         },
         {
           "area": "SW0310",
           "cap": 12,
-          "mxGeometry": {
-            "x": 1130,
-            "y": 80,
-            "width": 170,
-            "height": 80
-          }
+          "mxGeometry": [
+            {
+              "x": 1130,
+              "y": 80,
+              "width": 170,
+              "height": 80
+            },
+            {
+              "x": 1130,
+              "y": 160,
+              "width": 70,
+              "height": 70
+            }
+          ]
         },
         {
           "area": "SW0311",
           "cap": 1,
-          "mxGeometry": {
-            "x": 560,
-            "y": 290,
-            "width": 30,
-            "height": 30
-          }
+          "mxGeometry": [
+            {
+              "x": 560,
+              "y": 290,
+              "width": 30,
+              "height": 30
+            }
+          ]
         },
         {
           "area": "SW0312",
           "cap": 2,
-          "mxGeometry": {
-            "x": 647,
-            "y": 320,
-            "width": 23,
-            "height": 50
-          }
+          "mxGeometry": [
+            {
+              "x": 647,
+              "y": 320,
+              "width": 23,
+              "height": 50
+            }
+          ]
         },
         {
           "area": "SW0313",
           "cap": 1,
-          "mxGeometry": {
-            "x": 800,
-            "y": 180,
-            "width": 30,
-            "height": 30
-          }
+          "mxGeometry": [
+            {
+              "x": 800,
+              "y": 180,
+              "width": 30,
+              "height": 30
+            }
+          ]
         },
         {
           "area": "SW0314",
           "cap": 1,
-          "mxGeometry": {
-            "x": 850,
-            "y": 250,
-            "width": 30,
-            "height": 30
-          }
+          "mxGeometry": [
+            {
+              "x": 850,
+              "y": 250,
+              "width": 30,
+              "height": 30
+            }
+          ]
         },
         {
           "area": "SW0315",
           "cap": 1,
-          "mxGeometry": {
-            "x": 540,
-            "y": 120,
-            "width": 30,
-            "height": 30
-          }
+          "mxGeometry": [
+            {
+              "x": 540,
+              "y": 120,
+              "width": 30,
+              "height": 30
+            }
+          ]
         }
       ]
     },
@@ -391,122 +513,158 @@
         {
           "area": "NE0301",
           "cap": 16,
-          "mxGeometry": {
-            "x": 20,
-            "y": 300,
-            "width": 350,
-            "height": 70
-          }
+          "mxGeometry": [
+            {
+              "x": 20,
+              "y": 300,
+              "width": 350,
+              "height": 70
+            }
+          ]
         },
         {
           "area": "NE0310",
           "cap": 1,
-          "mxGeometry": {
-            "x": 680,
-            "y": 155,
-            "width": 30,
-            "height": 30
-          }
+          "mxGeometry": [
+            {
+              "x": 680,
+              "y": 155,
+              "width": 30,
+              "height": 30
+            }
+          ]
         },
         {
           "area": "NE0302",
           "cap": 12,
-          "mxGeometry": {
-            "x": 460,
-            "y": 60,
-            "width": 170,
-            "height": 80
-          }
+          "mxGeometry": [
+            {
+              "x": 460,
+              "y": 60,
+              "width": 170,
+              "height": 80
+            },
+            {
+              "x": 550,
+              "y": 140,
+              "width": 80,
+              "height": 60
+            }
+          ]
         },
         {
           "area": "NE0303",
           "cap": 6,
-          "mxGeometry": {
-            "x": 660,
-            "y": 190,
-            "width": 70,
-            "height": 110
-          }
+          "mxGeometry": [
+            {
+              "x": 660,
+              "y": 190,
+              "width": 70,
+              "height": 110
+            }
+          ]
         },
         {
           "area": "NE0304",
           "cap": 10,
-          "mxGeometry": {
-            "x": 750,
-            "y": 130,
-            "width": 90,
-            "height": 70
-          }
+          "mxGeometry": [
+            {
+              "x": 750,
+              "y": 130,
+              "width": 90,
+              "height": 70
+            },
+            {
+              "x": 840,
+              "y": 130,
+              "width": 80,
+              "height": 110
+            }
+          ]
         },
         {
           "area": "NE0305",
           "cap": 8,
-          "mxGeometry": {
-            "x": 930,
-            "y": 50,
-            "width": 150,
-            "height": 70
-          }
+          "mxGeometry": [
+            {
+              "x": 930,
+              "y": 50,
+              "width": 150,
+              "height": 70
+            }
+          ]
         },
         {
           "area": "NE0306",
           "cap": 12,
-          "mxGeometry": {
-            "x": 930,
-            "y": 150,
-            "width": 170,
-            "height": 150
-          }
+          "mxGeometry": [
+            {
+              "x": 930,
+              "y": 150,
+              "width": 170,
+              "height": 150
+            }
+          ]
         },
         {
           "area": "NE0307",
           "cap": 4,
-          "mxGeometry": {
-            "x": 1110,
-            "y": 330,
-            "width": 70,
-            "height": 80
-          }
+          "mxGeometry": [
+            {
+              "x": 1110,
+              "y": 330,
+              "width": 70,
+              "height": 80
+            }
+          ]
         },
         {
           "area": "NE0308",
           "cap": 2,
-          "mxGeometry": {
-            "x": 575,
-            "y": 210,
-            "width": 35,
-            "height": 50
-          }
+          "mxGeometry": [
+            {
+              "x": 575,
+              "y": 210,
+              "width": 35,
+              "height": 50
+            }
+          ]
         },
         {
           "area": "NE0309",
           "cap": 1,
-          "mxGeometry": {
-            "x": 630,
-            "y": 90,
-            "width": 30,
-            "height": 30
-          }
+          "mxGeometry": [
+            {
+              "x": 630,
+              "y": 90,
+              "width": 30,
+              "height": 30
+            }
+          ]
         },
         {
           "area": "NE0311",
           "cap": 2,
-          "mxGeometry": {
-            "x": 870,
-            "y": 50,
-            "width": 30,
-            "height": 50
-          }
+          "mxGeometry": [
+            {
+              "x": 870,
+              "y": 50,
+              "width": 30,
+              "height": 50
+            }
+          ]
         },
         {
           "area": "NE0312",
           "cap": 1,
-          "mxGeometry": {
-            "x": 1110,
-            "y": 270,
-            "width": 30,
-            "height": 30
-          }
+          "mxGeometry": [
+            {
+              "x": 1110,
+              "y": 270,
+              "width": 30,
+              "height": 30
+            }
+          ]
         }
       ]
     },
@@ -515,183 +673,226 @@
         {
           "area": "SE0302",
           "cap": 8,
-          "mxGeometry": {
-            "x": 200,
-            "y": 190,
-            "width": 80,
-            "height": 190
-          }
+          "mxGeometry": [
+            {
+              "x": 200,
+              "y": 190,
+              "width": 80,
+              "height": 190
+            }
+          ]
         },
         {
           "area": "SE0313",
           "cap": 1,
-          "mxGeometry": {
-            "x": 320,
-            "y": 140,
-            "width": 30,
-            "height": 30
-          }
+          "mxGeometry": [
+            {
+              "x": 320,
+              "y": 140,
+              "width": 30,
+              "height": 30
+            }
+          ]
         },
         {
           "area": "SE0303",
           "cap": 8,
-          "mxGeometry": {
-            "x": 295,
-            "y": 300,
-            "width": 165,
-            "height": 80
-          }
+          "mxGeometry": [
+            {
+              "x": 295,
+              "y": 300,
+              "width": 165,
+              "height": 80
+            }
+          ]
         },
         {
           "area": "SE0304",
           "cap": 6,
-          "mxGeometry": {
-            "x": 380,
-            "y": 112,
-            "width": 80,
-            "height": 118
-          }
+          "mxGeometry": [
+            {
+              "x": 380,
+              "y": 112,
+              "width": 80,
+              "height": 118
+            }
+          ]
         },
         {
           "area": "SE0305",
           "cap": 12,
-          "mxGeometry": {
-            "x": 480,
-            "y": 200,
-            "width": 90,
-            "height": 70
-          }
+          "mxGeometry": [
+            {
+              "x": 480,
+              "y": 200,
+              "width": 90,
+              "height": 70
+            },
+            {
+              "x": 570,
+              "y": 120,
+              "width": 80,
+              "height": 150
+            }
+          ]
         },
         {
           "area": "SE0306",
           "cap": 8,
-          "mxGeometry": {
-            "x": 661,
-            "y": 119,
-            "width": 80,
-            "height": 150
-          }
+          "mxGeometry": [
+            {
+              "x": 661,
+              "y": 119,
+              "width": 80,
+              "height": 150
+            }
+          ]
         },
         {
           "area": "SE0307",
           "cap": 12,
-          "mxGeometry": {
-            "x": 760,
-            "y": 120,
-            "width": 90,
-            "height": 80
-          }
+          "mxGeometry": [
+            {
+              "x": 760,
+              "y": 120,
+              "width": 90,
+              "height": 80
+            },
+            {
+              "x": 850,
+              "y": 119,
+              "width": 80,
+              "height": 150
+            }
+          ]
         },
         {
           "area": "SE0309",
           "cap": 4,
-          "mxGeometry": {
-            "x": 990,
-            "y": 10,
-            "width": 80,
-            "height": 80
-          }
+          "mxGeometry": [
+            {
+              "x": 990,
+              "y": 10,
+              "width": 80,
+              "height": 80
+            },
+            {
+              "x": 940,
+              "y": 120,
+              "width": 80,
+              "height": 110
+            }
+          ]
         },
         {
           "area": "SE0312",
           "cap": 6,
-          "mxGeometry": {
-            "x": 1070,
-            "y": 270,
-            "width": 80,
-            "height": 110
-          }
+          "mxGeometry": [
+            {
+              "x": 1070,
+              "y": 270,
+              "width": 80,
+              "height": 110
+            }
+          ]
         },
         {
           "area": "SE0311",
           "cap": 4,
-          "mxGeometry": {
-            "x": 760,
-            "y": 300,
-            "width": 80,
-            "height": 70
-          }
+          "mxGeometry": [
+            {
+              "x": 760,
+              "y": 300,
+              "width": 80,
+              "height": 70
+            }
+          ]
         },
         {
           "area": "SE0310",
           "cap": 6,
-          "mxGeometry": {
-            "x": 630,
-            "y": 300,
-            "width": 110,
-            "height": 70
-          }
+          "mxGeometry": [
+            {
+              "x": 630,
+              "y": 300,
+              "width": 110,
+              "height": 70
+            }
+          ]
         },
         {
           "area": "SE0314",
           "cap": 2,
-          "mxGeometry": {
-            "x": 300,
-            "y": 270,
-            "width": 60,
-            "height": 30
-          }
+          "mxGeometry": [
+            {
+              "x": 300,
+              "y": 270,
+              "width": 60,
+              "height": 30
+            }
+          ]
         },
         {
           "area": "SE0315",
           "cap": 1,
-          "mxGeometry": {
-            "x": 410,
-            "y": 230,
-            "width": 30,
-            "height": 30
-          }
+          "mxGeometry": [
+            {
+              "x": 410,
+              "y": 230,
+              "width": 30,
+              "height": 30
+            }
+          ]
         },
         {
           "area": "SE0316",
           "cap": 2,
-          "mxGeometry": {
-            "x": 840,
-            "y": 310,
-            "width": 30,
-            "height": 50
-          }
+          "mxGeometry": [
+            {
+              "x": 840,
+              "y": 310,
+              "width": 30,
+              "height": 50
+            }
+          ]
         },
         {
           "area": "SE0317",
           "cap": 2,
-          "mxGeometry": {
-            "x": 950,
-            "y": 230,
-            "width": 60,
-            "height": 30
-          }
+          "mxGeometry": [
+            {
+              "x": 950,
+              "y": 230,
+              "width": 60,
+              "height": 30
+            }
+          ]
         },
         {
           "area": "SE0318",
           "cap": 1,
-          "mxGeometry": {
-            "x": 1050,
-            "y": 130,
-            "width": 30,
-            "height": 30
-          }
+          "mxGeometry": [
+            {
+              "x": 1050,
+              "y": 130,
+              "width": 30,
+              "height": 30
+            }
+          ]
         },
         {
           "area": "SE0319",
           "cap": 1,
-          "mxGeometry": {
-            "x": 1090,
-            "y": 250,
-            "width": 30,
-            "height": 20
-          }
+          "mxGeometry": [
+            {
+              "x": 1090,
+              "y": 250,
+              "width": 30,
+              "height": 20
+            }
+          ]
         }
       ]
     }
-  },
-  "4F": {
-    "floor": 4
-  },
-  "5F": {
-    "floor": 5
-  },
-  "6F": {
-    "floor": 6
   }
 }

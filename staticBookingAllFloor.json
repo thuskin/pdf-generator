@@ -4,21 +4,37 @@
     "data": [
       {
         "area": "Agile32",
-        "mxGeometry": {
-          "x": 1630,
-          "y": 460,
-          "width": 220,
-          "height": 90
-        }
+        "mxGeometry": [
+          {
+            "x": 1630,
+            "y": 460,
+            "width": 220,
+            "height": 90
+          },
+          {
+            "x": 1850,
+            "y": 460,
+            "width": 110,
+            "height": 140
+          }
+        ]
       },
       {
         "area": "Agile31",
-        "mxGeometry": {
-          "x": 630,
-          "y": 100,
-          "width": 220,
-          "height": 90
-        }
+        "mxGeometry": [
+          {
+            "x": 630,
+            "y": 100,
+            "width": 220,
+            "height": 90
+          },
+          {
+            "x": 850,
+            "y": 50,
+            "width": 60,
+            "height": 140
+          }
+        ]
       }
     ]
   },
@@ -27,21 +43,25 @@
     "data": [
       {
         "area": "Agile62",
-        "mxGeometry": {
-          "x": 550,
-          "y": 390,
-          "width": 240,
-          "height": 120
-        }
+        "mxGeometry": [
+          {
+            "x": 550,
+            "y": 390,
+            "width": 240,
+            "height": 120
+          }
+        ]
       },
       {
         "area": "Agile61",
-        "mxGeometry": {
-          "x": 1410,
-          "y": 40,
-          "width": 280,
-          "height": 120
-        }
+        "mxGeometry": [
+          {
+            "x": 1410,
+            "y": 40,
+            "width": 280,
+            "height": 120
+          }
+        ]
       }
     ]
   }

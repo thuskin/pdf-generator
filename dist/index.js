@@ -33,6 +33,8 @@ fs.readFile('./om_floors.json', 'utf8', (err, data) => {
     try {
         // Parse the JSON data into an object
         const jsonData = JSON.parse(data);
+        // Set to store unique wings
+        const uniqueWings = new Set();
         // Maps to store check-in areas grouped by Floor and Wing
         const checkinAreasMap = new Map();
         const bookingAreasMap = new Map();
@@ -54,6 +56,7 @@ fs.readFile('./om_floors.json', 'utf8', (err, data) => {
                 if (matches) {
                     const floor = matches[1];
                     const wing = matches[2] || 'Booking';
+                    uniqueWings.add(wing);
                     // Initialize maps if not already
                     if (!checkinAreasMap.has(floor)) {
                         checkinAreasMap.set(floor, new Map());
@@ -88,43 +91,72 @@ fs.readFile('./om_floors.json', 'utf8', (err, data) => {
                                 const mxGeometry = (_a = obj.mxCell) === null || _a === void 0 ? void 0 : _a.mxGeometry;
                                 if (obj['-cap']) {
                                     // Check-in area
-                                    if (!uniqueCheckinWingAreas.has(areaName)) {
+                                    const checkinAreaKey = `${floor}-${wing}-${areaName}`;
+                                    if (!uniqueCheckinWingAreas.has(checkinAreaKey)) {
                                         checkinWingAreas.push(areaName);
-                                        uniqueCheckinWingAreas.add(areaName);
+                                        uniqueCheckinWingAreas.add(checkinAreaKey);
                                         totalCheckinAreas++;
+                                        // Add mxGeometry to StaticCheckinAllFloor
                                         if (mxGeometry) {
-                                            // Ensure data exists before pushing
-                                            if (!(staticCheckinAllFloor[floor][wing])) {
-                                                staticCheckinAllFloor[floor][wing] = { data: [] };
+                                            let existingCheckinArea = staticCheckinAllFloor[floor][wing];
+                                            if (!existingCheckinArea) {
+                                                existingCheckinArea = { data: [] };
+                                                staticCheckinAllFloor[floor][wing] = existingCheckinArea;
                                             }
-                                            staticCheckinAllFloor[floor][wing].data.push({
+                                            existingCheckinArea.data.push({
                                                 area: areaName,
                                                 cap: parseInt(obj['-cap']),
-                                                mxGeometry: {
-                                                    x: parseInt(mxGeometry['-x'] || '0'),
-                                                    y: parseInt(mxGeometry['-y'] || '0'),
-                                                    width: parseInt(mxGeometry['-width']),
-                                                    height: parseInt(mxGeometry['-height']),
-                                                },
+                                                mxGeometry: [{
+                                                        x: parseInt(mxGeometry['-x'] || '0'),
+                                                        y: parseInt(mxGeometry['-y'] || '0'),
+                                                        width: parseInt(mxGeometry['-width']),
+                                                        height: parseInt(mxGeometry['-height']),
+                                                    }],
+                                            });
+                                        }
+                                    }
+                                    else {
+                                        // Area already exists, add mxGeometry to existing entry
+                                        const existingCheckinArea = staticCheckinAllFloor[floor][wing].data.find(a => a.area === areaName);
+                                        if (existingCheckinArea && mxGeometry) {
+                                            existingCheckinArea.mxGeometry.push({
+                                                x: parseInt(mxGeometry['-x'] || '0'),
+                                                y: parseInt(mxGeometry['-y'] || '0'),
+                                                width: parseInt(mxGeometry['-width']),
+                                                height: parseInt(mxGeometry['-height']),
                                             });
                                         }
                                     }
                                 }
                                 else {
                                     // Booking area
-                                    if (!uniqueBookingWingAreas.has(areaName)) {
+                                    const bookingAreaKey = `${floor}-${wing}-${areaName}`;
+                                    if (!uniqueBookingWingAreas.has(bookingAreaKey)) {
                                         bookingWingAreas.push(areaName);
-                                        uniqueBookingWingAreas.add(areaName);
+                                        uniqueBookingWingAreas.add(bookingAreaKey);
                                         totalBookingAreas++;
+                                        // Add mxGeometry to StaticBookingAllFloor
                                         if (mxGeometry) {
-                                            staticBookingAllFloor[floor].data.push({
+                                            (staticBookingAllFloor[floor].data).push({
                                                 area: areaName,
-                                                mxGeometry: {
-                                                    x: parseInt(mxGeometry['-x'] || '0'),
-                                                    y: parseInt(mxGeometry['-y'] || '0'),
-                                                    width: parseInt(mxGeometry['-width']),
-                                                    height: parseInt(mxGeometry['-height']),
-                                                },
+                                                mxGeometry: [{
+                                                        x: parseInt(mxGeometry['-x'] || '0'),
+                                                        y: parseInt(mxGeometry['-y'] || '0'),
+                                                        width: parseInt(mxGeometry['-width']),
+                                                        height: parseInt(mxGeometry['-height']),
+                                                    }],
+                                            });
+                                        }
+                                    }
+                                    else {
+                                        // Area already exists, add mxGeometry to existing entry
+                                        const existingBookingArea = staticBookingAllFloor[floor].data.find(a => a.area === areaName);
+                                        if (existingBookingArea && mxGeometry) {
+                                            (existingBookingArea.mxGeometry).push({
+                                                x: parseInt(mxGeometry['-x'] || '0'),
+                                                y: parseInt(mxGeometry['-y'] || '0'),
+                                                width: parseInt(mxGeometry['-width']),
+                                                height: parseInt(mxGeometry['-height']),
                                             });
                                         }
                                     }
@@ -141,12 +173,31 @@ fs.readFile('./om_floors.json', 'utf8', (err, data) => {
                     console.error('Invalid diagram name format:', diagramName);
                 }
             });
+            console.log('Unique Wings:', Array.from(uniqueWings).join(', '));
             // Filter out floors with empty booking data from staticBookingAllFloor
             for (const floor in staticBookingAllFloor) {
                 if (staticBookingAllFloor[floor].data.length === 0) {
                     delete staticBookingAllFloor[floor];
                 }
             }
+            // After populating uniqueWings, filter staticCheckinAllFloor
+            const floorsToRemove = [];
+            for (const floor in staticCheckinAllFloor) {
+                let hasWings = false;
+                for (const wing in staticCheckinAllFloor[floor]) {
+                    if (uniqueWings.has(wing)) {
+                        hasWings = true;
+                        break;
+                    }
+                }
+                if (!hasWings) {
+                    floorsToRemove.push(floor);
+                }
+            }
+            // Remove floors from staticCheckinAllFloor
+            floorsToRemove.forEach((floor) => {
+                delete staticCheckinAllFloor[floor];
+            });
             // Function to log areas by floor and wing
             const logAreasByFloorAndWing = (areasMap, title) => {
                 console.log(`============= ${title.toUpperCase()} AREAS BY FLOOR AND WING =============`);
