@@ -160,40 +160,44 @@ fs.readFile('./om_floors.json', 'utf8', (err, data) => {
 
                                 if (obj['-cap']) {
                                     // Check-in area
-                                    checkinWingAreas.push(areaName);
-                                    uniqueCheckinWingAreas.add(areaName);
-                                    totalCheckinAreas++;
-                                    if (mxGeometry) {
-                                        // Ensure data exists before pushing
-                                        if (!(staticCheckinAllFloor[floor][wing])) {
-                                            staticCheckinAllFloor[floor][wing] = { data: [] };
+                                    if (!uniqueCheckinWingAreas.has(areaName)) {
+                                        checkinWingAreas.push(areaName);
+                                        uniqueCheckinWingAreas.add(areaName);
+                                        totalCheckinAreas++;
+                                        if (mxGeometry) {
+                                            // Ensure data exists before pushing
+                                            if (!(staticCheckinAllFloor[floor][wing])) {
+                                                staticCheckinAllFloor[floor][wing] = { data: [] };
+                                            }
+                                            (staticCheckinAllFloor[floor][wing] as StaticCheckinWing).data.push({
+                                                area: areaName,
+                                                cap: parseInt(obj['-cap']),
+                                                mxGeometry: {
+                                                    x: parseInt(mxGeometry['-x'] || '0'),
+                                                    y: parseInt(mxGeometry['-y'] || '0'),
+                                                    width: parseInt(mxGeometry['-width']),
+                                                    height: parseInt(mxGeometry['-height']),
+                                                },
+                                            });
                                         }
-                                        (staticCheckinAllFloor[floor][wing] as StaticCheckinWing).data.push({
-                                            area: areaName,
-                                            cap: parseInt(obj['-cap']),
-                                            mxGeometry: {
-                                                x: parseInt(mxGeometry['-x'] || '0'),
-                                                y: parseInt(mxGeometry['-y'] || '0'),
-                                                width: parseInt(mxGeometry['-width']),
-                                                height: parseInt(mxGeometry['-height']),
-                                            },
-                                        });
                                     }
                                 } else {
                                     // Booking area
-                                    bookingWingAreas.push(areaName);
-                                    uniqueBookingWingAreas.add(areaName);
-                                    totalBookingAreas++;
-                                    if (mxGeometry) {
-                                        staticBookingAllFloor[floor].data.push({
-                                            area: areaName,
-                                            mxGeometry: {
-                                                x: parseInt(mxGeometry['-x'] || '0'),
-                                                y: parseInt(mxGeometry['-y'] || '0'),
-                                                width: parseInt(mxGeometry['-width']),
-                                                height: parseInt(mxGeometry['-height']),
-                                            },
-                                        });
+                                    if (!uniqueBookingWingAreas.has(areaName)) {
+                                        bookingWingAreas.push(areaName);
+                                        uniqueBookingWingAreas.add(areaName);
+                                        totalBookingAreas++;
+                                        if (mxGeometry) {
+                                            staticBookingAllFloor[floor].data.push({
+                                                area: areaName,
+                                                mxGeometry: {
+                                                    x: parseInt(mxGeometry['-x'] || '0'),
+                                                    y: parseInt(mxGeometry['-y'] || '0'),
+                                                    width: parseInt(mxGeometry['-width']),
+                                                    height: parseInt(mxGeometry['-height']),
+                                                },
+                                            });
+                                        }
                                     }
                                 }
                                 floorCountMap.set(floor, (floorCountMap.get(floor) || 0) + 1);
