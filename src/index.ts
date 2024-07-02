@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import * as path from 'path';
 type StaticImage = {url: string; height: number; width: number}
 type StaticMxGeometry = {x: number; y: number; width: number; height: number}; //Use
 type StaticCheckinArea = {area: string; cap: number; mxGeometry: StaticMxGeometry[]}; //Use
@@ -25,7 +26,7 @@ type FileMxCell = {
     '-style'?: string;
     '-vertex'?: string;
     '-edge'?: string;
-    'mxGeometry'?: FileMxGeometry;
+    'mxGeometry': FileMxGeometry;
 }
 
 type FileDiagramObject = {
@@ -82,6 +83,44 @@ type FileMx = {
         '-pages': string;
         'diagram': FileDiagram[];
     }
+}
+
+function saveImageToFile(imageString: string | undefined, outputDirectory: string, fileName: string): string | undefined {
+  if (imageString === undefined) {
+      console.error('Image string is undefined.');
+      return undefined;
+  }
+
+  // Find the position of 'image=data:image/png,'
+  const base64Prefix = 'image=data:image/png,';
+  const startIndex = imageString.indexOf(base64Prefix);
+
+  if (startIndex === -1) {
+      console.error('Base64 data prefix not found in the provided string.');
+      return undefined;
+  }
+
+  // Extract base64 data part after 'image=data:image/png,'
+  const base64Data = imageString.substring(startIndex + base64Prefix.length);
+
+  // Base64 to buffer
+  const buffer = Buffer.from(base64Data, 'base64');
+
+  // Ensure the output directory exists
+  if (!fs.existsSync(outputDirectory)) {
+      fs.mkdirSync(outputDirectory, { recursive: true });
+  }
+
+  // Construct the file path
+  const filePath = path.join(outputDirectory, fileName + ".png");
+
+  // Write the buffer to file
+  fs.writeFileSync(filePath, buffer);
+
+  console.log(`Image saved to: ${filePath}`);
+  
+  // Return the file path
+  return filePath;
 }
 
 // Read the JSON file
@@ -234,6 +273,24 @@ fs.readFile('./om_floors.json', 'utf8', (err, data) => {
                     }
                   }
                   floorCountMap.set(floor, (floorCountMap.get(floor) || 0) + 1);
+                }
+              });
+              diagram.mxGraphModel.root.mxCell.forEach((temp)=> {
+                if (temp['-style'] !== undefined) {
+                  const filePath = saveImageToFile(temp['-style']!,  "./images", temp['-id']);
+                  if (filePath !== undefined) {
+                    console.log(`Image generated for ${floor}-${wing}`);
+                    const tempImage: StaticImage = {
+                      url: filePath,
+                      width: parseInt(temp.mxGeometry['-width']),
+                      height: parseInt(temp.mxGeometry['-height']),
+                    };
+                    if (wing === "Booking") {
+                      (staticBookingAllFloor[floor] as StaticBookingFloor).image = tempImage;
+                    } else {
+                      (staticCheckinAllFloor[floor][wing] as StaticCheckinWing).image = tempImage;
+                    }
+                  }
                 }
               });
             } else {

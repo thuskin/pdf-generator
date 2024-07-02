@@ -36,7 +36,12 @@
           }
         ]
       }
-    ]
+    ],
+    "image": {
+      "url": "images/DKHoAU8WloHiY057lwc9-1.png",
+      "width": 2612,
+      "height": 658
+    }
   },
   "6F": {
     "floor": 6,
@@ -63,6 +68,11 @@
           }
         ]
       }
-    ]
+    ],
+    "image": {
+      "url": "images/qGn4jlDovpTOOnME4QQo-1.png",
+      "width": 2242,
+      "height": 558
+    }
   }
 }

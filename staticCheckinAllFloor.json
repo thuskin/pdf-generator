@@ -105,7 +105,12 @@
             }
           ]
         }
-      ]
+      ],
+      "image": {
+        "url": "images/Gsh04A-me-uqwzH5fjPq-1.png",
+        "width": 1732,
+        "height": 590
+      }
     }
   },
   "3F": {
@@ -310,7 +315,12 @@
             }
           ]
         }
-      ]
+      ],
+      "image": {
+        "url": "images/b8PoI65Pl6Tt6ns4572T-1.png",
+        "width": 1226,
+        "height": 510
+      }
     },
     "SW": {
       "data": [
@@ -506,7 +516,12 @@
             }
           ]
         }
-      ]
+      ],
+      "image": {
+        "url": "images/1T8pYMQcz0D3JTYAxU5Q-2.png",
+        "width": 1324,
+        "height": 426
+      }
     },
     "NE": {
       "data": [
@@ -666,7 +681,12 @@
             }
           ]
         }
-      ]
+      ],
+      "image": {
+        "url": "images/FTe1l9eKoaiGdlgU-IU1-1.png",
+        "width": 1246,
+        "height": 418
+      }
     },
     "SE": {
       "data": [
@@ -892,7 +912,12 @@
             }
           ]
         }
-      ]
+      ],
+      "image": {
+        "url": "images/lYm8ooybOJrdRgLA1vHM-1.png",
+        "width": 1230,
+        "height": 414
+      }
     }
   }
 }
