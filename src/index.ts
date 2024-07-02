@@ -1,10 +1,14 @@
 import * as fs from 'fs';
+type StaticImage = {url: string; height: number; width: number}
 type StaticMxGeometry = {x: number; y: number; width: number; height: number}; //Use
 type StaticCheckinArea = {area: string; cap: number; mxGeometry: StaticMxGeometry}; //Use
-type StaticCheckinWing = {data: StaticCheckinArea[]; image: {url: string; height: number; width: number}}; // Use
+type StaticCheckinWing = {data: StaticCheckinArea[]; image?: StaticImage}; // Use
 type StaticBookingArea = {area: string; mxGeometry: StaticMxGeometry};
 type StaticCheckinFloor = {[key: string]: StaticCheckinWing | number}; //Use
-type StaticBookingFloor = {data: StaticBookingArea[]; floor: number};
+type StaticBookingFloor = {data: StaticBookingArea[]; image?: StaticImage; floor: number};
+
+type StaticCheckinAllFloor ={[key: string]: StaticCheckinFloor};
+type StaticBookingAllFloor ={[key: string]: StaticBookingFloor};
 
 type FileMxGeometry = {
     '-x'?: string;
@@ -79,6 +83,7 @@ type FileMx = {
         'diagram': FileDiagram[];
     }
 }
+
 // Read the JSON file
 fs.readFile('./om_floors.json', 'utf8', (err, data) => {
     if (err) {
@@ -99,22 +104,23 @@ fs.readFile('./om_floors.json', 'utf8', (err, data) => {
         const uniqueCheckinAreasMap: Map<string, Map<string, Set<string>>> = new Map();
         const uniqueBookingAreasMap: Map<string, Map<string, Set<string>>> = new Map();
 
+        // Structured data for StaticCheckinAllFloor and StaticBookingAllFloor
+        const staticCheckinAllFloor: StaticCheckinAllFloor = {};
+        const staticBookingAllFloor: StaticBookingAllFloor = {};
+
         let totalCheckinAreas = 0;
         let totalBookingAreas = 0;
 
-        let totalUniqueCheckinAreas = 0;
-        let totalUniqueBookingAreas = 0;
-
+        // Parse each diagram in the JSON data
         const mxfile = jsonData.mxfile;
         if (mxfile && Array.isArray(mxfile.diagram)) {
             mxfile.diagram.forEach((diagram) => {
                 const diagramName = diagram['-name'];
-                const matches = diagramName.match(/^(\d+F)\s*(\w+)?\s*(Booking)?$/);
+                const matches = diagramName.match(/^(\d+F)\s*(\w+|booking)?$/i);
 
                 if (matches) {
                     const floor = matches[1];
-                    const wing = matches[2] || 'General';
-                    const areaType = matches[3] ? 'Booking' : 'Check-in';
+                    const wing = matches[2] || 'Booking';
 
                     // Initialize maps if not already
                     if (!checkinAreasMap.has(floor)) {
@@ -123,6 +129,8 @@ fs.readFile('./om_floors.json', 'utf8', (err, data) => {
                         floorCountMap.set(floor, 0);
                         uniqueCheckinAreasMap.set(floor, new Map());
                         uniqueBookingAreasMap.set(floor, new Map());
+                        staticCheckinAllFloor[floor] = { floor: parseInt(floor) };
+                        staticBookingAllFloor[floor] = { floor: parseInt(floor), data: [] };
                     }
 
                     const floorCheckinMap = checkinAreasMap.get(floor)!;
@@ -148,16 +156,45 @@ fs.readFile('./om_floors.json', 'utf8', (err, data) => {
                         diagram.mxGraphModel.root.object.forEach((obj) => {
                             if (obj['-area']) {
                                 const areaName = obj['-area'];
+                                const mxGeometry = obj.mxCell?.mxGeometry;
+
                                 if (obj['-cap']) {
                                     // Check-in area
                                     checkinWingAreas.push(areaName);
                                     uniqueCheckinWingAreas.add(areaName);
                                     totalCheckinAreas++;
+                                    if (mxGeometry) {
+                                        // Ensure data exists before pushing
+                                        if (!(staticCheckinAllFloor[floor][wing])) {
+                                            staticCheckinAllFloor[floor][wing] = { data: [] };
+                                        }
+                                        (staticCheckinAllFloor[floor][wing] as StaticCheckinWing).data.push({
+                                            area: areaName,
+                                            cap: parseInt(obj['-cap']),
+                                            mxGeometry: {
+                                                x: parseInt(mxGeometry['-x'] || '0'),
+                                                y: parseInt(mxGeometry['-y'] || '0'),
+                                                width: parseInt(mxGeometry['-width']),
+                                                height: parseInt(mxGeometry['-height']),
+                                            },
+                                        });
+                                    }
                                 } else {
                                     // Booking area
                                     bookingWingAreas.push(areaName);
                                     uniqueBookingWingAreas.add(areaName);
                                     totalBookingAreas++;
+                                    if (mxGeometry) {
+                                        staticBookingAllFloor[floor].data.push({
+                                            area: areaName,
+                                            mxGeometry: {
+                                                x: parseInt(mxGeometry['-x'] || '0'),
+                                                y: parseInt(mxGeometry['-y'] || '0'),
+                                                width: parseInt(mxGeometry['-width']),
+                                                height: parseInt(mxGeometry['-height']),
+                                            },
+                                        });
+                                    }
                                 }
                                 floorCountMap.set(floor, (floorCountMap.get(floor) || 0) + 1);
                             }
@@ -169,6 +206,13 @@ fs.readFile('./om_floors.json', 'utf8', (err, data) => {
                     console.error('Invalid diagram name format:', diagramName);
                 }
             });
+
+            // Filter out floors with empty booking data from staticBookingAllFloor
+            for (const floor in staticBookingAllFloor) {
+                if (staticBookingAllFloor[floor].data.length === 0) {
+                    delete staticBookingAllFloor[floor];
+                }
+            }
 
             // Function to log areas by floor and wing
             const logAreasByFloorAndWing = (areasMap: Map<string, Map<string, string[]>>, title: string) => {
@@ -213,27 +257,48 @@ fs.readFile('./om_floors.json', 'utf8', (err, data) => {
             logUniqueAreasByFloorAndWing(uniqueBookingAreasMap, 'Booking');
 
             // Calculate and log total unique areas
-            const totalUniqueCheckinAreas = Array.from(uniqueCheckinAreasMap.values())
-                .reduce((total, floorMap) => total + Array.from(floorMap.values()).reduce((sum, set) => sum + set.size, 0), 0);
+            const totalUniqueCheckinAreas = Array.from(uniqueCheckinAreasMap.values()).reduce(
+                (total, floorMap) => total + Array.from(floorMap.values()).reduce((sum, set) => sum + set.size, 0),
+                0
+            );
 
-            const totalUniqueBookingAreas = Array.from(uniqueBookingAreasMap.values())
-                .reduce((total, floorMap) => total + Array.from(floorMap.values()).reduce((sum, set) => sum + set.size, 0), 0);
+            const totalUniqueBookingAreas = Array.from(uniqueBookingAreasMap.values()).reduce(
+                (total, floorMap) => total + Array.from(floorMap.values()).reduce((sum, set) => sum + set.size, 0),
+                0
+            );
 
             console.log(`Total Unique Check-in Areas: ${totalUniqueCheckinAreas}`);
             console.log(`Total Unique Booking Areas: ${totalUniqueBookingAreas}`);
 
+            // Log structured data for StaticCheckinAllFloor and StaticBookingAllFloor
+            console.log('=== Static Check-in All Floor ===');
+            console.log(staticCheckinAllFloor);
+
+            console.log('=== Static Booking All Floor ===');
+            console.log(staticBookingAllFloor);
+
+            // Write StaticCheckinAllFloor to JSON file
+            fs.writeFile('./staticCheckinAllFloor.json', JSON.stringify(staticCheckinAllFloor, null, 2), (err) => {
+                if (err) {
+                    console.error('Error writing StaticCheckinAllFloor to file:', err);
+                } else {
+                    console.log('StaticCheckinAllFloor has been saved to staticCheckinAllFloor.json');
+                }
+            });
+
+            // Write StaticBookingAllFloor to JSON file
+            fs.writeFile('./staticBookingAllFloor.json', JSON.stringify(staticBookingAllFloor, null, 2), (err) => {
+                if (err) {
+                    console.error('Error writing StaticBookingAllFloor to file:', err);
+                } else {
+                    console.log('StaticBookingAllFloor has been saved to staticBookingAllFloor.json');
+                }
+            });
+
         } else {
             console.error('Invalid diagram structure:', mxfile);
         }
-
     } catch (error) {
         console.error('Error parsing JSON file:', error);
     }
 });
-
-
-
-
-
-
-
